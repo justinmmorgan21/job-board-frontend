@@ -1,6 +1,8 @@
-// import {useLoaderData} from 'react-router-dom';
+import {useLoaderData} from 'react-router-dom';
 
-export function CompaniesShowPage({company}) {
+export function CompaniesShowPage() {
+
+  const company = useLoaderData();
 
   return (
     <div>
