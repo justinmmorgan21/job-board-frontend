@@ -1,7 +1,7 @@
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { JobsIndexPage } from './JobsIndexPage';
-import { Companies}
+import { CompaniesIndex } from './CompaniesIndexPag';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 
