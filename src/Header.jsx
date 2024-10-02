@@ -1,9 +1,13 @@
-import { Link } from 'react-route-dom'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { CompaniesShow } from './CompaniesShow'
 
 export function Header () { 
   return (
     <header>
-    <h1>Job Board</h1>
+      <Link to='/Signup'>Sign Up</Link>  | <Link to='/Companies'>Search By Company</Link>
     </header>
-  )
+  );
 }
+
+
