@@ -1,10 +1,10 @@
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { JobsIndexPage } from './JobsIndexPage';
-import { Companies}
+import { CompaniesIndex } from './CompaniesIndex';
+import { CompaniesShowPage } from './CompaniesShowPage';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-
-
+import axios from 'axios';
 
   const router = createBrowserRouter([
       {
@@ -54,18 +54,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
                   name: "Foot Locker",
                   logo: "fl.png",
                   description: "selling shoes is fun, yay!",
-                  jobs: [
-                    {
-                      id: 2,
-                      company_id: 7,
-                      title: "IT dept",
-                      description: "help people find the power switch",
-                      url: "jobs@jobs.gov",
-                      location: "New York City, NY",
-                      active: true,
-                      salary_range: "$90k - $110k"
-                    }
-                  ]
+                  jobs: []
                 }
               ]
             }
