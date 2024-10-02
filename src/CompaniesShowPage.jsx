@@ -2,8 +2,7 @@ import {useLoaderData} from 'react-router-dom';
 
 export function CompaniesShowPage() {
 
-  const company = useLoaderData();
-
+  const company = useLoaderData()[0];
   return (
     <div>
       <h1>{company.name}</h1>

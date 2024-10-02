@@ -7,6 +7,7 @@ export function CompaniesIndex () {
   const navigate = useNavigate();
   
   const companySubmit = (company) => { 
+    // console.log(company);
     navigate(`/companies/${company.id}`) 
   };
 
@@ -20,7 +21,7 @@ export function CompaniesIndex () {
         <h2>Name: {company.name}</h2>
         <img src={company.logo}></img>
         <h2>{company.description}</h2>
-        <button onClick={companySubmit(company)}>Jobs Information</button>
+        <button onClick={() => companySubmit(company)}>Jobs Information</button>
       </div>
       ))}
   </div>
