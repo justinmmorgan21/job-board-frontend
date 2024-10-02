@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 export function Header () { 
   return (
     <header>
-    <h1>Job Board</h1>
+      <Link to='/Signup'>Sign Up</Link>  | <Link to='/Companies'>Search By Company</Link>
     </header>
-  )
+  );
 }
+
+
