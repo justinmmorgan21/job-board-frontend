@@ -17,8 +17,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
         children: [
         { 
           path: '/jobs',
-          element: <JobsIndexPage />
-        }
+          element: <JobsIndexPage />,
+        },
       ],
     }
   ]);
