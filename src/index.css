@@ -1,0 +1,17 @@
+.logo {
+  width: 100px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+
+}
+
+.card {
+  /* border: solid 1px black */
+  background-color: lightgray;
+  border-radius: 4px;
+  padding: 10px;
+}

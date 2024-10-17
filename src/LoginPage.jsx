@@ -40,7 +40,7 @@ export function LoginPage () {
           <div>
             Password: <input type='password' name='password' />
           </div>
-          <button type='submit' />
+          <button type='submit'>Login</button>
         </form>
     </div>
   );

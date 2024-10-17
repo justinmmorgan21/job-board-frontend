@@ -4,27 +4,32 @@ import { useNavigate } from 'react-router-dom';
 
 export function CompaniesIndex () { 
   const companies = useLoaderData();
+  console.log(companies);
   const navigate = useNavigate();
   
-  const companySubmit = (company) => { 
+  const companySubmit = (id) => { 
     // console.log(company);
-    navigate(`/companies/${company.id}`) 
+    navigate(`/companies/${id}`) 
   };
 
   
   return ( 
-  <div>
+  <div >
     <h1>All Companies</h1>
+    <div className="cards">
     {
       companies.map((company) => (
-      <div key ={company.id}>
-        <h2>Name: {company.name}</h2>
-        <img src={company.logo}></img>
-        <h2>{company.description}</h2>
-        <button onClick={() => companySubmit(company)}>Jobs Information</button>
+        <div className="card" key ={company.id}>
+        <h3>Name: {company.name}</h3>
+        <img className={"logo"} src={company.logo}></img>
+        <p>{company.description}</p>
+        <button onClick={() => companySubmit(company.id)}>Jobs Information</button>
+        <span> ({company.jobs.length} jobs)</span>
       </div>
       ))}
+      </div>
   </div>
+      
   )
 }
  

@@ -5,9 +5,12 @@ import { CompaniesIndex } from './CompaniesIndex';
 import { CompaniesShowPage } from './CompaniesShowPage';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import axios from 'axios';
+import { SignupPage } from './SignupPage';
+import { LoginPage } from './LoginPage';
+import { LogoutLink } from "./LogoutLink";
 
   const router = createBrowserRouter([
-      {
+    {
         element: (
           <div>
             <Header />
@@ -19,134 +22,27 @@ import axios from 'axios';
           {
             path: '/companies',
             element: <CompaniesIndex />,
-            loader: () => {
-              return [
-                {
-                  id: 5,
-                  name: "Applebees",
-                  logo: "aplbesLogo.jpg",
-                  description: "funnerest place to work ever",
-                  jobs: [
-                    {
-                      id: 1,
-                      company_id: 5,
-                      title: "sales manager",
-                      description: "oversee a team of salespeople",
-                      url: "sales_jobs@money.com",
-                      location: "Los Angeles, CA",
-                      active: true,
-                      salary_range: "$80k - $130k"
-                    },
-                    {
-                      id: 3,
-                      company_id: 5,
-                      title: "transaction compliance officer",
-                      description: "keep people honest",
-                      url: "hr_jobs@money.com",
-                      location: "Dallas, TX",
-                      active: true,
-                      salary_range: "$50k - $55k"
-                    }
-                  ]
-                },
-                {
-                  id: 7,
-                  name: "Foot Locker",
-                  logo: "fl.png",
-                  description: "selling shoes is fun, yay!",
-                  jobs: [
-                    {
-                      id: 2,
-                      company_id: 7,
-                      title: "IT dept",
-                      description: "help people find the power switch",
-                      url: "jobs@jobs.gov",
-                      location: "New York City, NY",
-                      active: true,
-                      salary_range: "$90k - $110k"
-                    }
-                  ]
-                }
-              ]
-            }
-            // axios.get(`http://localhost:3000/companies.json`).then(response => response.data)
+            loader: () => axios.get(`http://localhost:3000/companies.json`).then(response => response.data)
           },
           {
             path: '/companies/:id',
             element: <CompaniesShowPage />,
-            loader: () => {
-              return [
-                {
-                  id: 5,
-                  name: "Applebees",
-                  logo: "aplbesLogo.jpg",
-                  description: "funnerest place to work ever",
-                  jobs: [
-                    {
-                      id: 1,
-                      company_id: 5,
-                      title: "sales manager",
-                      description: "oversee a team of salespeople",
-                      url: "sales_jobs@money.com",
-                      location: "Los Angeles, CA",
-                      active: true,
-                      salary_range: "$80k - $130k"
-                    },
-                    {
-                      id: 3,
-                      company_id: 5,
-                      title: "transaction compliance officer",
-                      description: "keep people honest",
-                      url: "hr_jobs@money.com",
-                      location: "Dallas, TX",
-                      active: true,
-                      salary_range: "$50k - $55k"
-                    }
-                  ]
-                }
-              ]
-            }
-              // axios.get(`http://localhost:3000/companies/${params.id}.json`).then(response => response.data)
+            loader: ({params}) => axios.get(`http://localhost:3000/companies/${params.id}.json`).then(response => response.data)
           },
           { 
           path: '/',
           element: <JobsIndexPage />,
-          loader: () => {
-            return [
-              {
-                id: 1,
-                company_id: 5,
-                title: "sales manager",
-                description: "oversee a team of salespeople",
-                url: "sales_jobs@money.com",
-                location: "Los Angeles, CA",
-                active: true,
-                salary_range: "$80k - $130k"
-              },
-              {
-                id: 2,
-                company_id: 7,
-                title: "IT dept",
-                description: "help people find the power switch",
-                url: "jobs@jobs.gov",
-                location: "New York City, NY",
-                active: true,
-                salary_range: "$90k - $110k"
-              },
-              {
-                id: 3,
-                company_id: 5,
-                title: "transaction compliance officer",
-                description: "keep people honest",
-                url: "hr_jobs@money.com",
-                location: "Dallas, TX",
-                active: true,
-                salary_range: "$50k - $55k"
-              }
-            ]
+          loader: () => axios.get('http://localhost:3000/jobs.json').then(response => response.data)
+          },
+          {
+            path: '/signup',
+            element: <SignupPage />
+          },
+          {
+            path: '/login',
+            element: <LoginPage />
           }
-        }
-      ],
+        ],
     }
   ]);
 
