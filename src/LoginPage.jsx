@@ -14,7 +14,7 @@ export function LoginPage () {
   const handleSubmit = (event) => { 
     event.preventDefault();
     const params = new FormData(event.target);
-    axios.post("http://localhost:3000/sessions.json", params).then((response) => { 
+    axios.post("/sessions.json", params).then((response) => { 
       console.log(response.data);
       axios.deafults.headers.common['Authorization'] `Bearer ` + response.data.jwt;
       event.taget.reset();
