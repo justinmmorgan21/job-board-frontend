@@ -2,7 +2,7 @@ import {useLoaderData} from 'react-router-dom';
 
 export function JobsIndexPage() {
   const jobs = useLoaderData();
-
+  console.log(jobs);
   return (
     <div>
       <h1>All Jobs</h1>
