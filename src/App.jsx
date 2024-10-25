@@ -21,17 +21,17 @@ import { LoginPage } from './LoginPage';
           {
             path: '/companies',
             element: <CompaniesIndex />,
-            loader: () => axios.get(`http://localhost:3000/companies.json`).then(response => response.data)
+            loader: () => axios.get("/companies.json").then(response => response.data)
           },
           {
             path: '/companies/:id',
             element: <CompaniesShowPage />,
-            loader: ({params}) => axios.get(`http://localhost:3000/companies/${params.id}.json`).then(response => response.data)
+            loader: ({params}) => axios.get("/companies/"+ params.id + ".json").then(response => response.data)
           },
           { 
           path: '/',
           element: <JobsIndexPage />,
-          loader: () => axios.get('http://localhost:3000/jobs.json').then(response => response.data)
+          loader: () => axios.get("/jobs.json").then(response => response.data)
           },
           {
             path: '/signup',
